@@ -25,9 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', adminRouter);
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke!');
+app.use((err,req,res,next)=>{
+  console.log(err)
+  res.status(500).json({success:false,message:'internal server error'})
 });
 
 app.listen(port, () => {

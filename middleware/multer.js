@@ -1,14 +1,15 @@
 
-const multer = require('multer');
-const cardStorage = multer.diskStorage({
+const multer = require('multer')
+
+const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/card-image');
+      cb(null, './public/card-image')
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);
+      const uniqueSuffix = Date.now() + '-' + file.originalname
+      cb(null,uniqueSuffix)
     }
-});
+  }) 
+     
 
-const cardUpload = multer({ storage: cardStorage }).single('card-image')
-module.exports = { 
-    cardUpload };
+ module.exports = storage;
