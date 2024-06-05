@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const{addProductPost,editPoduct}=require('../controller/productController')
-const {pickPost}=require('../controller/userController')
+const {pickPost}=require('../controller/pickupController')
 
+router.post('/pickup',pickPost)
 
-router.post('/addproduct',addProductPost)
-router.
