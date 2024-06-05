@@ -1,6 +1,11 @@
 module.exports={
-    pickPost:(req,res)=>{
 
+
+
+    pickPost:async(req,res)=>{
+console.log('data',req.body);
     },
+
+    
     
 }

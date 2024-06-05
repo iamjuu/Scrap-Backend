@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 7000;
 const path = require('path');
 const cors = require('cors');
 const adminRouter = require('./router/adminRouter');
@@ -11,9 +11,12 @@ Dbconnection();
 
 
 const corsOptions = {
-  origin: ('http://localhost:5173'),
+  origin: 'http://localhost:5173',
+  maxAge: 86400, // 1 day
 };
+
 app.use(cors(corsOptions));
+
 
 
 app.use(express.json());
