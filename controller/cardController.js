@@ -1,10 +1,11 @@
 const { Cardmodel } = require("../model/Carddata");
 // admin card
 module.exports = {
+
+
+  // this path for saving card details on data base 
   cardPost: async (req, res,next) => {
     try{
-
-    
     const body = Object.assign({}, req.body);
     const { title, price } = body;
     const newData = new Cardmodel({
@@ -31,5 +32,22 @@ module.exports = {
           console.log(err, 'error in card passing to frontend');
           res.status(500).json({ error: 'Internal Server Error' });
       }
-  }
+  },
+
+
+
+// this path for admin product page looping 
+
+adminCard:async(req,res)=>{
+console.log('here');
+
+try {
+  const adminCard = await Cardmodel.find()
+res.json({adminCard:adminCard})
+} catch (error) {
+  console.log(error,'error in admincard check in card controller');
+}
+
+}
+
 };
