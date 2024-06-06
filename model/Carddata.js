@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 
 const card = new mongoose.Schema({
-    Image:{type:String},
+    Image:{
+        type:String},
     title:{
         type:String
     },

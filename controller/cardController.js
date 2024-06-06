@@ -7,11 +7,10 @@ module.exports = {
     
     const body = Object.assign({}, req.body);
     const { title, price } = body;
-    const Image = req.file.filename;
     const newData = new Cardmodel({
       title,
       price,
-      Image,
+      Image : '/assets/cardImages/' + req.file.filename,
     });
     await newData.save();
     res.status(201).json({ success: true, message: "product" });
