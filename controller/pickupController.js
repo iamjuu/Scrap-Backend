@@ -2,9 +2,10 @@ const { pickupupload } = require("../model/pickup");
 
 module.exports = {
   pickPost: async (req, res) => {
-    console.log(req.body);
-    console.log(req.file);
+ 
+    const pickupdata = new pickupupload(req.body)
+    await pickupdata.save()
+    console.log(pickupdata,'data saved');
 
-    res.json({ message: "Form submitted successfully" });
   },
 };
