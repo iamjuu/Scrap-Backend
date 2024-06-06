@@ -1,6 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const {pickPost}=require('../controller/pickupController')
+const pickupstorage =require('../middleware/multer')
+const multer = require('multer')
+const upload =multer({pickupstorage})
 
-router.post('/pickup',pickPost)
+
+router.post('/pickup',upload.single('file'),pickPost)
+
+
+
+module.exports =router
 
