@@ -6,7 +6,7 @@ const multer = require('multer')
 const upload =multer({pickupstorage})
 
 
-router.post('/pickup',upload.single('file'),pickPost)
+router.post('/pickup', upload.single('kilogram'),pickPost)
 
 
 
