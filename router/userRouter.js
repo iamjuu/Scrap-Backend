@@ -5,7 +5,7 @@ const pickupstorage =require('../middleware/multer')
 const multer = require('multer')
 const upload =multer({pickupstorage})
 
-
+// pickup data saving to database 
 router.post('/pickup', upload.single('kilogram'),pickPost)
 
 
