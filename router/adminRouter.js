@@ -13,12 +13,13 @@ Router.post('/card', upload.single("file"), cardPost);
 Router.post('/products', carddetailspost);
 
 // user data sending to frondend 
-Router.get('/admin/Users',user)
-
-// admin product card path 
-Router.get('/Products',adminCard)
+Router.get('/Users',user)
 
 // admin user delete path 
 Router.post('/admin/User/delete',userdelete)
+
+
+// admin product card path 
+Router.get('/Products',adminCard)
 
 module.exports = Router;
