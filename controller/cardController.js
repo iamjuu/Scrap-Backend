@@ -39,8 +39,6 @@ module.exports = {
 // this path for admin product page looping 
 
 adminCard:async(req,res)=>{
-console.log('here');
-
 try {
   const adminCard = await Cardmodel.find()
 res.json({adminCard:adminCard})

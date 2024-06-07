@@ -19,6 +19,6 @@ Router.get('/admin/Users',user)
 Router.get('/Products',adminCard)
 
 // admin user delete path 
-Router.post('/User/delete',userdelete)
+Router.post('/admin/User/delete',userdelete)
 
 module.exports = Router;

@@ -26,9 +26,10 @@ const pickup = new mongoose.Schema({
   killogram: {
     type: String,
   },
-});
+},{timestamps:true});
 
 const pickupupload = mongoose.model("pickupschema", pickup);
 
 module.exports = {
-    pickupupload}
+    pickupupload
+  }
