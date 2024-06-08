@@ -1,8 +1,6 @@
 const { Cardmodel } = require("../model/Carddata");
 // admin card
 module.exports = {
-
-
   // this path for saving card details on data base 
   cardPost: async (req, res,next) => {
     try{
@@ -20,11 +18,9 @@ module.exports = {
 }
   },
 
-  // this path is for loop the card
-
+ // this path is for loop the card in user side
   carddetailspost: async (req, res) => {
       try {
-          console.log('triggered');
           const carddetails = await Cardmodel.find();
           console.log("----",carddetails);
           res.json({ carddetails });
@@ -33,13 +29,10 @@ module.exports = {
           res.status(500).json({ error: 'Internal Server Error' });
       }
   },
-
-
-
 // this path for admin product page looping 
-
 adminCard:async(req,res)=>{
 try {
+  console.log('triggered');
   const adminCard = await Cardmodel.find()
 res.json({adminCard:adminCard})
 } catch (error) {
