@@ -6,6 +6,7 @@ module.exports = {
       const pickupdata = new pickupupload(req.body);
       await pickupdata.save();
       console.log(pickupdata, "data saved");
+      res.status(200).json({success:true})
     } catch (error) {
       console.log(error, "error in  pickup post");
     }
