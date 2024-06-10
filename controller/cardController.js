@@ -32,12 +32,17 @@ module.exports = {
 // this path for admin product page looping 
 adminCard:async(req,res)=>{
 try {
-  console.log('triggered');
   const adminCard = await Cardmodel.find()
 res.json({adminCard:adminCard})
 } catch (error) {
   console.log(error,'error in admincard check in card controller');
 }
+
+},
+
+// this path for delete admin prodect card
+
+adminproductdelete:(req,res)=>{
 
 }
 

@@ -20,6 +20,8 @@ Router.post('/admin/User/delete',userdelete)
 // admin product card path  for passing data to front end
 Router.get('/adminProduct',adminCard)
 
+// admin product card delete path
+
 module.exports = Router;
 
 
