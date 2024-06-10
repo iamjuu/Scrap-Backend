@@ -11,4 +11,12 @@ module.exports = {
       console.log(error, "error in  pickup post");
     }
   },
+  filterdate:async(req,res)=>{
+    try{
+     console.log(req.body);
+     
+    }catch(err){
+
+    }
+  }
 };
