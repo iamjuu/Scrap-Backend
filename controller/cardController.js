@@ -41,8 +41,11 @@ res.json({adminCard:adminCard})
 },
 
 // this path for delete admin prodect card
+adminproductdelete:async(req,res)=>{
+const id = req.query.id
+console.log('id',id);
 
-adminproductdelete:(req,res)=>{
+
 
 }
 

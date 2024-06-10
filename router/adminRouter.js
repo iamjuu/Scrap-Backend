@@ -3,8 +3,8 @@ const express = require('express');
 const Router = express.Router();
 const multer = require('multer');
 const { storage } = require('../middleware/multer'); // Ensure correct import
-const { cardPost,adminCard } = require('../controller/cardController');
-const {user,userdelete}=require('../controller/userController')
+const { cardPost,adminCard,adminproductdelete } = require('../controller/cardController');
+const {user,userdelete,}=require('../controller/userController')
 
 const upload = multer({ storage });
 // saving card details in database 
@@ -21,6 +21,7 @@ Router.post('/admin/User/delete',userdelete)
 Router.get('/adminProduct',adminCard)
 
 // admin product card delete path
+Router.post('/productdelete',adminproductdelete)
 
 module.exports = Router;
 
