@@ -4,6 +4,7 @@ module.exports = {
   cardPost: async (req, res, next) => {
     try {
       const body = Object.assign({}, req.body);
+       
       const { title, price } = body;
       const newData = new Cardmodel({
         title,
@@ -45,4 +46,14 @@ module.exports = {
     await Cardmodel.deleteOne({ _id: id });
     res.status(200).json({ success: true });
   },
+
+
+
+  // this path is to find data and send to frondend
+  adminProductedit:(req,res)=>{
+
+    const id = req.query.id
+    console.log(id,'this is id');
+  }
+
 };

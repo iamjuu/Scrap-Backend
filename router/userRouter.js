@@ -1,18 +1,17 @@
-const express = require('express')
-const router = express.Router()
-const {pickPost}=require('../controller/pickupController')
-const {adminCard}=require('../controller/cardController')
-const { carddetailspost, } = require('../controller/cardController');
+const express = require('express');
+const router = express.Router();
+const multer = require('multer');
+const { pickPost } = require('../controller/pickupController');
+const { carddetailspost } = require('../controller/cardController');
+const { pickupstorage } = require('../middleware/multer');
 
-const pickupstorage =require('../middleware/multer')
-const multer = require('multer')
-const upload =multer({pickupstorage})
+// Configure multer with the pickupstorage
+const upload = multer({ storage: pickupstorage });
 
 // pickup data saving to database 
-router.post('/pickup', upload.single('kilogram'),pickPost)
+router.post('/pickup', upload.single('pickupImage'), pickPost);
 
-// this path for sending data backend to frondend for product looping
+// this path for sending data backend to frontend for product looping
 router.post('/products', carddetailspost);
 
-module.exports =router
-
+module.exports = router;

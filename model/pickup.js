@@ -23,7 +23,7 @@ const pickup = new mongoose.Schema({
     type: String,
   },
 
-  killogram: {
+  pickupImage: {
     type: String,
   },
 },{timestamps:true});
