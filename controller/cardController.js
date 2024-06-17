@@ -54,6 +54,34 @@ module.exports = {
 
     const id = req.query.id
     console.log(id,'this is id');
-  }
+  },
+
+  updateProduct: async (req, res) => {
+    const { id } = req.params;
+    const { title, price } = req.body;
+
+    try {
+      const updatedData = {
+        title,
+        price,
+      };
+
+      if (req.file) {
+        updatedData.Image = "/assets/cardImages/" + req.file.filename;
+      }
+
+      const updatedProduct = await Cardmodel.findByIdAndUpdate(id, updatedData, { new: true });
+      if (!updatedProduct) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+
+      res.status(200).json({ success: true, message: 'Product updated successfully', product: updatedProduct });
+    } catch (error) {
+      console.error('Error updating product:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+
+      
+    }
+  },
 
 };

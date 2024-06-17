@@ -6,6 +6,9 @@ req.body.pickupImage = req.file.filename
  const newdata =new pickupupload(req.body)
  await newdata.save()
 
+
+ const findemail= pickupupload.find()
+
     } catch (error) {
       console.log(error, "error in  pickup post");
     }
