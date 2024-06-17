@@ -4,13 +4,11 @@ module.exports = {
   cardPost: async (req, res, next) => {
     try {
       const body = Object.assign({}, req.body);
-       
       const { title, price } = body;
       const newData = new Cardmodel({
         title,
         price,
         Image: "/assets/cardImages/" + req.file.filename,
-
       });
       await newData.save();
       res.status(201).json({ success: true, message: "product" });
@@ -47,15 +45,25 @@ module.exports = {
     res.status(200).json({ success: true });
   },
 
+  // this path for admin product edit 
 
 
-  // this path is to find data and send to frondend
-  adminProductedit:(req,res)=>{
-
-    const id = req.query.id
-    console.log(id,'this is id');
+  adminproductedit: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const product = await Cardmodel.findById(id);
+      if (!product) {
+        return res.status(404).json({ message: "Product not found" });
+      }
+      res.status(200).json(product);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   },
 
+
+  // this path for update path  
+  
   updateProduct: async (req, res) => {
     const { id } = req.params;
     const { title, price } = req.body;
@@ -79,9 +87,6 @@ module.exports = {
     } catch (error) {
       console.error('Error updating product:', error);
       res.status(500).json({ error: 'Internal Server Error' });
-
-      
     }
   },
-
 };

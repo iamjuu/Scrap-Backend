@@ -1,6 +1,9 @@
 const { pickupupload } = require("../model/pickup");
 
 module.exports = {
+
+
+  // this path for list user to admin page 
   user: async (req, res, next) => {
     try {
       const userData = await pickupupload.find();
@@ -10,6 +13,8 @@ module.exports = {
     }
   },
 
+
+  // this path for deleting user  from user list 
   userdelete: async (req, res) => {
     try {
       const id = req.query.id;
