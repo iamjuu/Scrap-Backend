@@ -1,22 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const signup =new mongoose.Schem({
+const SignupSchema = new mongoose.Schema({
+    name:String,
+    phone: Number,
+    password: String,
 
-username:{
-    type:String
-},
-phone :{
-    type:String
-},
-password :{
-    type :String
-}
+});
 
-})
+const Signup = mongoose.model("Signup", SignupSchema);
 
-
-
-const SignupData = mongoose.model('signup',signup)
 module.exports = {
-    SignupData
-}
+    Signup
+  }
