@@ -14,6 +14,8 @@ module.exports = {
       const id = req.query.id;
       await pickupupload.deleteOne({ _id: id });
       res.status(200).json({ success: true });
+
+      
     } catch (error) {}
   },
 };
