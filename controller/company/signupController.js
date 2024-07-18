@@ -1,20 +1,16 @@
-// company side signup controller 
-
-
-const {Signup}=require('../../model/Signupmodel')
-module.exports={
-signupPost: (req,res) =>{
-
-
+const { Signup } = require("../../model/Signupmodel");
+module.exports = {
+  signupPost: async (req, res) => {
     try {
-        const { email, phone, password } = req.body
+      const { email, phone, password } = req.body;
+      const Phone = phone
+      const Data = new Signup(req.body);
+      await Data.save();
+    res.status(200).json({ success: true });
 
-        res.status(200).json({ message: 'Signup successful' });
-    }catch (error) {
-        console.log(error,'error in signup post');
-        
+    } catch (error) {
+      console.log(error, "error in signup post");
     }
-  
-}
+  },
+};
 
-}

@@ -25,6 +25,7 @@
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.2",
     "parser": "^0.1.4",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "twilio": "^5.2.2"
   }
 }
