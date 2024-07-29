@@ -19,9 +19,6 @@ Router.get('/Users',user)
 // admin user delete path 
 Router.post('/admin/User/delete',userdelete)
 
-// admin product card path  for passing data to front end
-// Router.get('/adminProducts',adminCard)
-
 // admin product card delete path
 Router.post('/productdelete',adminproductdelete)
 
@@ -30,7 +27,7 @@ Router.get('/products/:id',adminproductedit)
 Router.put('/products/:id', upload.single('image'), updateProduct);
 
 // admin product card path  for passing data to front end
-Router.get("/adminproducts",adminCard)
+Router.get("/adminProduct",adminCard)
 
 module.exports = Router;
 
