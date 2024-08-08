@@ -4,7 +4,7 @@ const agentschema = new mongoose.Schema(
   {
     Companyname: String,
     phone: Number,
-    kilogram:String,
+    kilogram:Number,
     address: String,
     city: String,
     country: String,
