@@ -31,7 +31,6 @@ module.exports = {
   // this path for admin product page looping
   adminCard: async (req, res) => {
     try {
-      console.log('fortend connected');
       const adminCard = await Cardmodel.find();
       res.json({ adminCard: adminCard });
     } catch (error) {
