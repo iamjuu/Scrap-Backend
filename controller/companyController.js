@@ -16,4 +16,15 @@ module.exports = {
       console.log(error, "error in  pickup post");
     }
   },
+  agentdata:async (req,res)  => {
+
+    try {
+      const agentData = await Company.find()
+      console.log(agentData,'data gotted');
+      res.status(200).json({message:true,Agent:agentData})
+    } catch (error) {
+      console.log(error,'err in agent data passing to frontend');
+         }
+ 
+  }
 };
