@@ -5,11 +5,8 @@ const agentschema = new mongoose.Schema(
     Companyname: String,
     phone: Number,
     kilogram:Number,
-    address: String,
-    city: String,
-    country: String,
-    state: String,
-    zipcode: String,
+    message: String,
+  
     companyImage: String, 
   },
   { timestamps: true }

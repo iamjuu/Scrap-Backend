@@ -8,10 +8,12 @@ module.exports = {
         Companyname:companyName,
         phone:phone,
         kilogram:tonAmount,
+        message:message
         
       })
       await company.save();
-      console.log(company,'data saved');   
+      console.log(company,'data saved'); 
+      res.status(200).json({ message: "Data saved successfully" });
     } catch (error) {
       console.log(error, "error in  pickup post");
     }
