@@ -4,9 +4,10 @@ module.exports = {
     try {
       console.log(req.body,'got it');
       req.body.pickupImage = req.file.filename;
-      const newdata = new pickupupload(req.body);
+      const newdata = new pickupupload(req.body)
       await newdata.save()
       console.log(newdata)
+      res.status(200).json({message:true})
     } catch (error) {
       console.log(error, "error in  pickup post");
     }
