@@ -13,8 +13,8 @@ const card = new mongoose.Schema({
 
 })
 
-const Cardmodel =mongoose.model('cardschema',card)
+const CompanycardModel =mongoose.model('Companycardschema',card)
 
 module.exports={
-    Cardmodel
+    CompanycardModel
 }

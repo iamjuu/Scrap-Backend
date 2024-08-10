@@ -12,6 +12,18 @@ const storage = multer.diskStorage({
 });
 
 
+const CompanyImage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../public/assets/CompanycardImages')); 
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + file.originalname;
+    cb(null, uniqueSuffix);
+  }
+});
+
+
+
 const pickupstorage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, '../public/assets/pickupImage'));
@@ -35,5 +47,6 @@ const Companypickupstorage = multer.diskStorage({
 module.exports = {
   storage,
   pickupstorage,
-  Companypickupstorage
+  Companypickupstorage,
+ CompanyImage
 };
