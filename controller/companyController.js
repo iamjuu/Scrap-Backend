@@ -73,7 +73,7 @@ module.exports = {
         console.log(Exist, "Number found in the Company collection");
         res.status(200).json({ message: "Number exists", company: Exist });
       } else {
-        res.json({ msg: "render agentform" });
+        res.status(202).json({ msg: "render agentform" });
       }
     } catch (error) {
       console.error(error);
