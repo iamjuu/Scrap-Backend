@@ -1,18 +1,17 @@
 const { Company } = require("../model/companymodel");
 const { CompanycardModel } = require("../model/CompanyCard");
-
 module.exports = {
   // this path to save the agent form data
   agenyformPost: async (req, res) => {
     try {
       // console.log(req.body, "frontend data");
-      const { companyName, phone,location, tonAmount, message } = req.body;
-console.log(location,'loc');
+      const { companyName, phone, location, tonAmount, message } = req.body;
+      console.log(location, "loc");
 
       const company = new Company({
         Companyname: companyName,
         phone: phone,
-        location:location,
+        location: location,
         kilogram: tonAmount,
         message: message,
       });
@@ -83,9 +82,13 @@ console.log(location,'loc');
     }
   },
 
-
-    agentcardGet:(req,res) => {
-console.log('here');
-
-  }
+  agentcardGet: async (req, res) => {
+    try {
+      console.log("here");
+      const data = await CompanycardModel.find();
+    } catch (error) {
+      console.log(error,'err in agent  product card send to frontend err in agent controller  check in agentcard get');
+      
+    }
+  },
 };
