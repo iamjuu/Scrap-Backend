@@ -6,11 +6,13 @@ module.exports = {
   agenyformPost: async (req, res) => {
     try {
       // console.log(req.body, "frontend data");
-      const { companyName, phone, tonAmount, message } = req.body;
+      const { companyName, phone,location, tonAmount, message } = req.body;
+console.log(location,'loc');
 
       const company = new Company({
         Companyname: companyName,
         phone: phone,
+        location:location,
         kilogram: tonAmount,
         message: message,
       });

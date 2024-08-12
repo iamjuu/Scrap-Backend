@@ -6,6 +6,7 @@ const agentschema = new mongoose.Schema(
     phone: Number,
     kilogram:Number,
     message: String,
+    location:String,
   
     companyImage: String, 
   },
