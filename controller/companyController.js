@@ -82,4 +82,10 @@ console.log(location,'loc');
       return res.status(500).json({ message: "Internal server error" });
     }
   },
+
+
+    agentcardGet:(req,res) => {
+console.log('here');
+
+  }
 };
