@@ -84,11 +84,11 @@ module.exports = {
 
   agentcardGet: async (req, res) => {
     try {
-      console.log("here");
+      console.log("Fetching agent card data...");
       const data = await CompanycardModel.find();
+      res.status(200).json({ message: true, Agent: data });
     } catch (error) {
-      console.log(error,'err in agent  product card send to frontend err in agent controller  check in agentcard get');
-      
-    }
-  },
+      console.error('Error in agent card get:', error);
+      res.status(400).json({ message: "Page not found" });
+    }},
 };
