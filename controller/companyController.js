@@ -24,7 +24,7 @@ module.exports = {
     }
   },
 
-  // thsi path is send data to frondend fo looping
+  // this path is send data to frondend for looping
   agentdata: async (req, res) => {
     try {
       const agentData = await Company.find();
@@ -36,14 +36,19 @@ module.exports = {
     }
   },
   // ************************************************************
+
+  // agent product card data saving in data base
   agentCard: async (req, res) => {
     try {
       const body = Object.assign({}, req.body);
       const { title, price } = body;
+      console.log('here');
+
+      
       const newData = new CompanycardModel({
         title,
         price,
-        // Image: "/assets/CompanycardImages/" + req.file.filename,
+        Image: "/assets/CompanycardImages/" + req.file.filename,
       });
       await newData.save();
       res.status(201).json({ success: true, message: "product" });
@@ -51,6 +56,8 @@ module.exports = {
       console.log(err, "err in agent card  check in the agentcard controller");
     }
   },
+  // .................................... 
+  // this path is sending data to frontend 
   agentcarddata: async (req, res) => {
     try {
       const agentData = await CompanycardModel.find();
@@ -91,4 +98,18 @@ module.exports = {
       console.error('Error in agent card get:', error);
       res.status(400).json({ message: "Page not found" });
     }},
-};
+
+    agentproductdelete:async(req,res)=>{
+      try{
+        const Id = req.query.id
+        const deleteProduct = await CompanycardModel.findByIdAndDelete(Id)
+        console.log('deleted product');
+        res.status(200).json({message:true})        
+    }
+  catch(err){
+console.log(err,' error in agent product  card delete please check the company controller');
+
+  }
+}
+}
+
