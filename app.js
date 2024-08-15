@@ -6,6 +6,7 @@ const cors = require("cors");
 const adminRouter = require("./router/adminRouter");
 const userRouter = require("./router/userRouter");
 const agentRouter = require("./router/CompanyRouter");
+const DashboardRouter = require('./router/DashboardRouter')
 const Dbconnection = require("./config/dataBase");
 require("dotenv").config();
 Dbconnection();
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", adminRouter);
 app.use("/", userRouter);
+app.use('/',DashboardRouter);
 app.use("/", agentRouter);
 app.use((err, req, res, next) => {
   console.log(err);

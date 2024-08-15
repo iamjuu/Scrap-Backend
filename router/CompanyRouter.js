@@ -6,7 +6,10 @@ const {agenyformPost,
     agentcarddata,
     ExistingAgent,
     agentcardGet,
-    agentproductdelete
+    agentproductdelete,
+    adminAgentproductEdit,
+    AgentupdateProduct,
+    agentproductDelete
 } = require('../controller/companyController')
 const {Companypickupstorage,CompanyImage} =require('../middleware/multer')
 
@@ -41,7 +44,21 @@ Router.get('/getagentproduct',agentcardGet)
 
 
 Router.post('/adminagentProductdelete',agentproductdelete)
+
+
+// agentCard card edit path  
+
+Router.get('/agentproducts/:id',adminAgentproductEdit)
+Router.put('/products/:id', upload.single('image'), AgentupdateProduct);
+
+
+// agentprooduct delete path 
+Router.post('/admin/adminAgentlistDelete',agentproductDelete)
+
 module.exports = Router; 
+
+
+
 
 
 

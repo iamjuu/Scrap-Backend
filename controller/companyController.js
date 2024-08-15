@@ -110,6 +110,60 @@ module.exports = {
 console.log(err,' error in agent product  card delete please check the company controller');
 
   }
+},
+adminAgentproductEdit: async(req,res)=>{
+  try {
+    const { id } = req.params;
+    const product = await CompanycardModel.findById(id);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+},
+
+AgentupdateProduct: async(req,res) =>{
+  const { id } = req.params;
+  const { title, price } = req.body;
+
+  try {
+    const updatedData = {
+      title,
+      price,
+    };
+
+    if (req.file) {
+      updatedData.Image = "/assets/CompanycardImages/" + req.file.filename;
+    }
+
+    const updatedProduct = await CompanycardModel.findByIdAndUpdate(id, updatedData, { new: true });
+    if (!updatedProduct) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    res.status(200).json({ success: true, message: 'Product updated successfully', product: updatedProduct });
+  } catch (error) {
+    console.error('Error updating product:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+},
+agentproductDelete:async(req,res)=>{
+  try {
+    const id = req.query.id;
+    await Company.deleteOne({ _id: id });
+    res.status(200).json({ success: true });
+
+  } catch (error) {
+    console.log(error,'erron in agent product delete');
+    
+    
+  }
+
 }
 }
+
+
+
 

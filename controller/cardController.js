@@ -1,4 +1,5 @@
 const { Cardmodel } = require("../model/Carddata");
+
 module.exports = {
   // this path for saving card details on data base
   cardPost: async (req, res, next) => {
