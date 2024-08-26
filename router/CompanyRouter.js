@@ -48,8 +48,6 @@ Router.post('/adminagentProductdelete',agentproductdelete)
 
 // agentCard card edit path  
 
-Router.get('/agentproducts/:id',adminAgentproductEdit)
-Router.put('/products/:id', upload.single('image'), AgentupdateProduct);
 
 
 // agentprooduct delete path 

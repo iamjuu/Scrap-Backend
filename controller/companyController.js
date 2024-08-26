@@ -81,7 +81,7 @@ module.exports = {
         console.log(Exist, "Number found in the Company collection");
         res.status(200).json({ message: "Number exists", company: Exist });
       } else {
-        res.status(202).json({ msg: "render agentform" });
+        res.status(202).json({ message: "render agentform" });
       }
     } catch (error) {
       console.error(error);
@@ -112,7 +112,7 @@ console.log(err,' error in agent product  card delete please check the company c
   }
 },
 adminAgentproductEdit: async(req,res)=>{
-  try {
+  try {3310
     const { id } = req.params;
     const product = await CompanycardModel.findById(id);
     if (!product) {
@@ -122,9 +122,7 @@ adminAgentproductEdit: async(req,res)=>{
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-},
-
-AgentupdateProduct: async(req,res) =>{
+}, AgentupdateProduct: async (req, res) => {
   const { id } = req.params;
   const { title, price } = req.body;
 
@@ -135,10 +133,10 @@ AgentupdateProduct: async(req,res) =>{
     };
 
     if (req.file) {
-      updatedData.Image = "/assets/CompanycardImages/" + req.file.filename;
+      updatedData.Image = "/assets/cardImages/" + req.file.filename;
     }
 
-    const updatedProduct = await CompanycardModel.findByIdAndUpdate(id, updatedData, { new: true });
+    const updatedProduct = await Cardmodel.findByIdAndUpdate(id, updatedData, { new: true });
     if (!updatedProduct) {
       return res.status(404).json({ message: 'Product not found' });
     }
@@ -149,6 +147,9 @@ AgentupdateProduct: async(req,res) =>{
     res.status(500).json({ error: 'Internal Server Error' });
   }
 },
+
+
+
 agentproductDelete:async(req,res)=>{
   try {
     const id = req.query.id;
@@ -161,7 +162,11 @@ agentproductDelete:async(req,res)=>{
     
   }
 
-}
+  
+},
+
+
+
 }
 
 
